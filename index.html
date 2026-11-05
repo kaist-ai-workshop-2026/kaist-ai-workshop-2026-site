@@ -281,6 +281,29 @@
             font-weight: 500;
         }
 
+        /* Button */
+        .btn {
+            display: inline-block;
+            margin-top: 0.25rem;
+            padding: 0.6rem 1.6rem;
+            background: var(--red);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .btn:hover { background: #c93a30; }
+
+        .tba {
+            font-size: 1.05rem !important;
+            font-weight: 600;
+            color: #888 !important;
+            letter-spacing: 0.05em;
+        }
+
         /* Venue */
         .map {
             width: 100%;
@@ -440,49 +463,13 @@
 
         <h3 id="register">Registration</h3>
         <p>The workshop is open to <strong>KAIST AI members</strong>. Please register in advance. If you would like to present a poster, indicate it on the registration form.</p>
-        <p><strong>Registration link:</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLV2lJ5OjosRK5jBhu6VZXIZs4bDHB5WbvH8s3WJJswwW7iA/viewform" target="_blank" rel="noopener">Google Form</a></p>
-
-        <h3>Key Information</h3>
-        <table class="dates-table">
-            <tr>
-                <td>Date</td>
-                <td>Thursday, December 17, 2026</td>
-            </tr>
-            <tr>
-                <td>Time</td>
-                <td>1:00 – 6:00 PM (KST)</td>
-            </tr>
-            <tr>
-                <td>Venue</td>
-                <td>Seoul AI Hub, 108 Taebong-ro, Seocho-gu, Seoul</td>
-            </tr>
-            <tr>
-                <td>Eligibility</td>
-                <td>KAIST AI members</td>
-            </tr>
-        </table>
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeLV2lJ5OjosRK5jBhu6VZXIZs4bDHB5WbvH8s3WJJswwW7iA/viewform" target="_blank" rel="noopener">Register</a>
     </section>
 
     <!-- Schedule -->
     <section id="schedule">
         <h2>Schedule</h2>
-        <p>Tentative schedule. Details may change.</p>
-        <table class="schedule-table">
-            <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>Event</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>12:30–13:00</td><td>Registration &amp; Poster Setup</td></tr>
-                <tr><td>13:00–13:15</td><td>Opening Remarks</td></tr>
-                <tr><td>13:15–15:15</td><td>Poster Session</td></tr>
-                <tr><td>15:15–16:30</td><td>Networking</td></tr>
-                <tr><td>16:30–17:50</td><td>Year-End Party</td></tr>
-                <tr><td>17:50–18:00</td><td>Closing</td></tr>
-            </tbody>
-        </table>
+        <p class="tba">TBA</p>
     </section>
 
     <!-- Venue -->
