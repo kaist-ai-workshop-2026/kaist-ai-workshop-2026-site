@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAIST AI Workshop 2026</title>
+    <meta name="description" content="KAIST AI Workshop 2026 — Poster session, networking, and year-end party for KAIST AI members. December 17, 2026, Seoul AI Hub.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #0d2a22;
+            --green-2: #1e3b33;
+            --red: #e0473c;
+            --accent: #1a5c48;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #333;
+            line-height: 1.8;
+            background: #fff;
+        }
+
+        a { color: var(--accent); }
+
+        /* Fixed Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(13, 42, 34, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 0 2rem;
+        }
+
+        nav .nav-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 56px;
+        }
+
+        nav .nav-title {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        nav .nav-title span { color: var(--red); }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav .nav-links a:hover { color: #fff; }
+
+        /* Hero Banner */
+        .hero {
+            position: relative;
+            height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: var(--green);
+        }
+
+        .hero-art {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 0 2rem;
+            margin-top: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 .year { color: var(--red); }
+
+        .hero .meta {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.92);
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .sub {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hero .cta {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.6rem 1.6rem;
+            background: var(--red);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .hero .cta:hover { background: #c93a30; }
+
+        /* Main Content */
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .content section { margin-bottom: 3.5rem; }
+
+        .content h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .content h3 {
+            font-size: 1.15rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            font-size: 0.98rem;
+            color: #444;
+        }
+
+        .content ul { margin: 1rem 0 1.5rem 1.5rem; }
+
+        .content ul li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .content strong { color: #222; }
+
+        /* News */
+        .news-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .news-item:last-child { border-bottom: none; }
+
+        .news-date {
+            font-size: 0.82rem;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* Program cards */
+        .program {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .program-item {
+            padding: 1.25rem 1.25rem 1rem;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            background: #fafbfa;
+        }
+
+        .program-item .num {
+            color: var(--red);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .program-item .title {
+            font-weight: 700;
+            color: var(--green);
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .program-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Info / dates table */
+        .dates-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .dates-table tr { border-bottom: 1px solid #eee; }
+
+        .dates-table td {
+            padding: 0.85rem 0;
+            font-size: 0.95rem;
+            vertical-align: top;
+        }
+
+        .dates-table td:first-child {
+            font-weight: 600;
+            color: #222;
+            width: 200px;
+        }
+
+        .dates-table td:last-child { color: #555; }
+
+        /* Schedule Table */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .schedule-table th {
+            text-align: left;
+            padding: 0.75rem 0;
+            font-size: 0.85rem;
+            color: #888;
+            border-bottom: 2px solid #eee;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.7rem 0;
+            font-size: 0.93rem;
+            border-bottom: 1px solid #f5f5f5;
+            vertical-align: top;
+        }
+
+        .schedule-table td:first-child {
+            width: 130px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Venue */
+        .map {
+            width: 100%;
+            height: 340px;
+            border: 0;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+        }
+
+        /* Sponsors */
+        .sponsors {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        .sponsor {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #555;
+            letter-spacing: 0.04em;
+        }
+
+        .sponsor img { height: 44px; width: auto; max-width: 100%; display: block; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #eee;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 0 1rem; }
+            nav .nav-links { gap: 1rem; }
+            nav .nav-links a { font-size: 0.8rem; }
+            nav .nav-title { font-size: 0.8rem; }
+            .hero { height: 440px; }
+            .hero h1 { font-size: 2.1rem; }
+            .content { padding: 2rem 1.25rem; }
+            .program { grid-template-columns: 1fr; }
+            .dates-table td:first-child { width: 120px; }
+        }
+
+        @media (max-width: 560px) {
+            nav .nav-links { display: none; }
+            .hero h1 { font-size: 1.75rem; }
+            .hero .meta { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-title">KAIST AI Workshop <span>2026</span></a>
+        <ul class="nav-links">
+            <li><a href="#news">News</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#program">Program</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#venue">Venue</a></li>
+            <li><a href="#sponsors">Sponsors</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Banner: network-tree + Seoul skyline, after the poster -->
+<div class="hero">
+    <svg class="hero-art" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <!-- skyline -->
+        <g fill="#1e3b33">
+            <path d="M0 470 H60 V440 H110 V470 H170 V425 H210 V448 H280 V410 H330 V438 H400 V400 H450 V430 H520 V445 H560 V420 H610 V448 H700 V520 H0 Z"/>
+            <rect x="745" y="395" width="5" height="125"/>
+            <rect x="732" y="425" width="31" height="9" rx="4"/>
+            <ellipse cx="748" cy="545" rx="120" ry="60"/>
+            <path d="M1180 520 V440 H1250 V460 H1320 V430 H1370 V455 H1440 V520 Z"/>
+        </g>
+        <!-- network tree (right) -->
+        <g transform="translate(1080 70) scale(0.85)" opacity="0.55">
+            <g stroke="#9fb3ab" stroke-width="1.5">
+                <line x1="110" y1="60" x2="70" y2="125"/><line x1="110" y1="60" x2="150" y2="125"/>
+                <line x1="70" y1="125" x2="30" y2="190"/><line x1="70" y1="125" x2="110" y2="190"/><line x1="70" y1="125" x2="190" y2="190"/>
+                <line x1="150" y1="125" x2="30" y2="190"/><line x1="150" y1="125" x2="110" y2="190"/><line x1="150" y1="125" x2="190" y2="190"/>
+                <line x1="30" y1="190" x2="0" y2="255"/><line x1="30" y1="190" x2="75" y2="255"/><line x1="30" y1="190" x2="145" y2="255"/>
+                <line x1="110" y1="190" x2="75" y2="255"/><line x1="110" y1="190" x2="145" y2="255"/>
+                <line x1="190" y1="190" x2="75" y2="255"/><line x1="190" y1="190" x2="145" y2="255"/><line x1="190" y1="190" x2="220" y2="255"/>
+            </g>
+            <polygon fill="#e0473c" points="110,0 117,20 138,20 121,32 128,52 110,40 92,52 99,32 82,20 103,20"/>
+            <g fill="#fff">
+                <circle cx="110" cy="60" r="10"/><circle cx="150" cy="125" r="10"/><circle cx="30" cy="190" r="10"/>
+                <circle cx="190" cy="190" r="10"/><circle cx="75" cy="255" r="10"/><circle cx="145" cy="255" r="10"/>
+            </g>
+            <g fill="#e0473c">
+                <circle cx="70" cy="125" r="10"/><circle cx="110" cy="190" r="10"/>
+                <circle cx="0" cy="255" r="10"/><circle cx="220" cy="255" r="10"/>
+            </g>
+            <rect x="96" y="275" width="28" height="48" rx="3" fill="#d9dcda"/>
+        </g>
+    </svg>
+    <div class="hero-content">
+        <h1>KAIST AI Workshop <span class="year">2026</span></h1>
+        <p class="meta">Thursday, December 17, 2026 &middot; 1:00 – 6:00 PM</p>
+        <p class="meta">Seoul AI Hub, 108 Taebong-ro, Seocho-gu, Seoul</p>
+        <p class="sub">For KAIST AI members</p>
+        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeLV2lJ5OjosRK5jBhu6VZXIZs4bDHB5WbvH8s3WJJswwW7iA/viewform" target="_blank" rel="noopener">Register</a>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="content">
+
+    <!-- News -->
+    <section id="news">
+        <h2>News</h2>
+        <div class="news-item">
+            <span class="news-date">[2026/11]</span> Registration is now open! <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLV2lJ5OjosRK5jBhu6VZXIZs4bDHB5WbvH8s3WJJswwW7iA/viewform" target="_blank" rel="noopener">Register here</a>.
+        </div>
+        <div class="news-item">
+            <span class="news-date">[2026/11]</span> Workshop website is live!
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2>About</h2>
+        <p>The <strong>KAIST AI Workshop 2026</strong> is a year-end gathering for members of KAIST AI. It brings together students and researchers from labs across KAIST AI to share the work they published at <strong>2026 conferences</strong>, meet colleagues beyond their own labs, and close out the year together.</p>
+        <p>The afternoon combines a <strong>poster session</strong>, open <strong>networking</strong>, and a <strong>year-end party</strong>, with refreshments served throughout.</p>
+    </section>
+
+    <!-- Program -->
+    <section id="program">
+        <h2>Program</h2>
+        <div class="program">
+            <div class="program-item">
+                <div class="num">01</div>
+                <div class="title">Poster Session</div>
+                <p>Present your 2026 conference papers and discuss them with peers.</p>
+            </div>
+            <div class="program-item">
+                <div class="num">02</div>
+                <div class="title">Networking</div>
+                <p>Meet researchers from labs across KAIST AI.</p>
+            </div>
+            <div class="program-item">
+                <div class="num">03</div>
+                <div class="title">Year-End Party</div>
+                <p>Refreshments served throughout the afternoon.</p>
+            </div>
+        </div>
+
+        <h3 id="register">Registration</h3>
+        <p>The workshop is open to <strong>KAIST AI members</strong>. Please register in advance. If you would like to present a poster, indicate it on the registration form.</p>
+        <p><strong>Registration link:</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLV2lJ5OjosRK5jBhu6VZXIZs4bDHB5WbvH8s3WJJswwW7iA/viewform" target="_blank" rel="noopener">Google Form</a></p>
+
+        <h3>Key Information</h3>
+        <table class="dates-table">
+            <tr>
+                <td>Date</td>
+                <td>Thursday, December 17, 2026</td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td>1:00 – 6:00 PM (KST)</td>
+            </tr>
+            <tr>
+                <td>Venue</td>
+                <td>Seoul AI Hub, 108 Taebong-ro, Seocho-gu, Seoul</td>
+            </tr>
+            <tr>
+                <td>Eligibility</td>
+                <td>KAIST AI members</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Schedule -->
+    <section id="schedule">
+        <h2>Schedule</h2>
+        <p>Tentative schedule. Details may change.</p>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Event</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>12:30–13:00</td><td>Registration &amp; Poster Setup</td></tr>
+                <tr><td>13:00–13:15</td><td>Opening Remarks</td></tr>
+                <tr><td>13:15–15:15</td><td>Poster Session</td></tr>
+                <tr><td>15:15–16:30</td><td>Networking</td></tr>
+                <tr><td>16:30–17:50</td><td>Year-End Party</td></tr>
+                <tr><td>17:50–18:00</td><td>Closing</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Venue -->
+    <section id="venue">
+        <h2>Venue</h2>
+        <p><strong>Seoul AI Hub</strong><br>108 Taebong-ro, Seocho-gu, Seoul, Republic of Korea</p>
+        <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Seoul%20AI%20Hub%2C%20108%20Taebong-ro%2C%20Seocho-gu%2C%20Seoul&z=16&output=embed"
+            title="Map of Seoul AI Hub"></iframe>
+    </section>
+
+    <!-- Sponsors -->
+    <section id="sponsors">
+        <h2>Sponsors</h2>
+        <div class="sponsors">
+            <div class="sponsor"><img src="assets/logo-stai.png" alt="STAI — Scalable Trustworthy AI" style="height:72px"></div>
+            <div class="sponsor"><img src="assets/logo-ineeji.png" alt="INEEJI" style="height:42px"></div>
+            <div class="sponsor"><img src="assets/logo-letsur.png" alt="LETSUR" style="height:30px"></div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    &copy; 2026 KAIST AI Workshop. All rights reserved.
+</footer>
+
+</body>
+</html>
